@@ -1,0 +1,15 @@
+/.github/ @minimum-core/admin
+/CODEOWNERS @minimum-core/admin
+
+# update by renovate
+# .terraform.lock.hcl
+# aqua.yaml
+# aqua/*.yaml
+# .tflint.hcl (tflint plugin)
+#
+# give up automerge
+# renovate.json preset
+# .github
+
+foo/**/*.tf @minimum-core/admin-1 @minimum-core/admin-2
+foo/**/*.md @minimum-core/admin-1 @minimum-core/admin-2
