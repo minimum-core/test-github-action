@@ -13,3 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Generate token
+      id: generate_token
+      uses: tibdex/github-app-token@v1
+      with:
+        app_id: ${{ secrets.APP_ID }}
+        private_key: ${{ secrets.APP_PRIVATE_KEY }}
+    - run: gh pr review -a ${{ github.event.pull_request.number }}
+      env:
+        GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+    # - run: git checkout -b test-create-pr
+    # - run: git push origin test-create-pr
+    # - run: gh pr create -t "create pr" -b "create pr"
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
