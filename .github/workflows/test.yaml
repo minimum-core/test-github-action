@@ -14,6 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: git checkout -b test-create-pr
+    - run: git push origin test-create-pr
     - run: gh pr create -t "create pr" -b "create pr"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
